@@ -30,6 +30,12 @@ class ProductController extends Controller
             $query->get(['sku', 'name', 'price']);
         }])->first();
 
+        if (empty($category) OR empty($category->products)) {
+            return response([
+                'message' => 'No products found.'
+            ], 404);
+        }
+
         $response = [
             'city' => ucfirst($city),
             'current_weather' => $weather_condition,
