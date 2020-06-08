@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    protected $hidden = ['pivot'];
+
     /**
      * The categories that product belongs to.
      */
